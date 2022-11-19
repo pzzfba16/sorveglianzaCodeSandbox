@@ -1,0 +1,86 @@
+[
+  {
+    "idA": 1,
+    "esperto": "Dott.ssa Antonia Menghini",
+    "email": "antonia.menghini@unitn.it",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 2,
+    "esperto": "Dott.ssa Alberta Cimitan",
+    "email": "alberta.cimitan@gmail.com",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 3,
+    "esperto": "Dott.ssa Mariella Cottone",
+    "email": "stellinamariel@yahoo.it",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 4,
+    "esperto": "Dott.ssa Alessandra Maria Benedetti",
+    "email": "peppa.ale@libero.it",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 5,
+    "esperto": "Dott.ssa Mara Festini Mira",
+    "email": "mara.festini@tiscali.it",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 6,
+    "esperto": "Dott. Lorenzo Gazzola",
+    "email": "gazlor@libero.it",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 7,
+    "esperto": "Dott. Giovanni Masotto",
+    "email": "giovanni.masotto@alice.it",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 8,
+    "esperto": "Dott.ssa Anna Zanetti",
+    "email": "annazanetti@alice.it",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 9,
+    "esperto": "Dott.ssa Barbara Garofalo",
+    "email": "info@barbaragarofalo.it",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 10,
+    "esperto": "Dott. Alberto Manzoni",
+    "email": "repacoc@alice.it",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 11,
+    "esperto": "Dott.ssa Fratantonio Giada",
+    "email": "giada.fratantonio@ordinepsicologiveneto.it",
+    "telefono": null,
+    "active": true
+  },
+  {
+    "idA": 12,
+    "esperto": "Dott.ssa Katia Lamon",
+    "email": "k.lamon@alice.it",
+    "telefono": null,
+    "active": true
+  }
+]

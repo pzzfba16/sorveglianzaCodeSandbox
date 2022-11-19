@@ -1,0 +1,42 @@
+[
+  {
+    "idA": 1,
+    "istanza": 199,
+    "descrizione": "esecuzione presso il domicilio delle pene detentive non superiori 18 mesi (L. 199/2010)"
+  },
+  {
+    "idA": 2,
+    "istanza": "Lib. Ant.",
+    "descrizione": "Liberazione anticipata (art. 54 O.P.)"
+  },
+  {
+    "idA": 3,
+    "istanza": "Esp",
+    "descrizione": "Espulsione a titolo di sanzione sostitutiva o alternativa alla detenzione (art. 16 D.LGS. 286/1998)"
+  },
+  {
+    "idA": 4,
+    "istanza": "Perm",
+    "descrizione": "Permessi (art 30 e 30 Ter O.P.)"
+  },
+  {
+    "idA": 5,
+    "istanza": "35 Ter",
+    "descrizione": "Rimedi risarcitori conseguenti alla violazione dell'articolo 3 della CE (art. 35 Ter)"
+  },
+  {
+    "idA": 6,
+    "istanza": "MA",
+    "descrizione": "Misure alternative"
+  },
+  {
+    "idA": 7,
+    "istanza": "TS",
+    "descrizione": "Tribunale di Sorveglianza"
+  },
+  {
+    "idA": 8,
+    "istanza": 47,
+    "descrizione": "Misure alternative alla dentenzione"
+  }
+]

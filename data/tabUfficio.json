@@ -1,0 +1,20 @@
+[
+  {
+    "idA": 1,
+    "ufficio": "Ufficio di Sorveglianza di Verona",
+    "indirizzo": "Via dello Zappatore, nr. 1",
+    "citta": "Verona",
+    "telefono": "045/8084337",
+    "pec": "uffsorv.verona@giustizia.it",
+    "peo": "uffsorv.verona@giustiziacert.it"
+  },
+  {
+    "idA": 3,
+    "ufficio": "Tribunale di Sorveglianza di Venezia",
+    "indirizzo": "Via dello Zappatore, nr. 1",
+    "citta": "Verona",
+    "telefono": "045/8084337",
+    "pec": "uffsorv.verona@giustizia.it",
+    "peo": "uffsorv.verona@giustiziacert.it"
+  }
+]

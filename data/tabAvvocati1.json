@@ -1,0 +1,122 @@
+[
+{
+"idA": 1,
+"avvocato": "Bergamini Simone Giuseppe",
+"foro": "Verona",
+"email": "studiolegalebergamini@pec.it"
+},
+{
+"idA": 2,
+"avvocato": "Alifuoco Gianluca",
+"foro": "Vicenza",
+"email": "gianluca.alifuoco@ordineavvocativicenza.it"
+},
+{
+"idA": 3,
+"avvocato": "Poli Stefano",
+"foro": "Verona",
+"email": "info@pec.avvocatopoli.it"
+},
+{
+"idA": 4,
+"avvocato": "Favetta Riccardo",
+"foro": "Verona",
+"email": "avv.riccardofavetta@pec.it"
+},
+{
+"idA": 5,
+"avvocato": "Sperotto Alessandro",
+"foro": "Pordenone",
+"email": "alessandro.sperotto@avvocatipordenone.it"
+},
+{
+"idA": 6,
+"avvocato": "Aldegheri Giuliasofia",
+"foro": "Verona",
+"email": "avv.giuliasofia.aldegheri@pec.it"
+},
+{
+"idA": 7,
+"avvocato": "Luppi Emanuele",
+"foro": "Verona",
+"email": "emanuele.luppi@postecert.it"
+},
+{
+"idA": 8,
+"avvocato": "Brombin Michele",
+"foro": "Verona",
+"email": "michelebrombin@pec.it"
+},
+{
+"idA": 9,
+"avvocato": "Nicolin Rachele",
+"foro": "Vicenza",
+"email": "rachele.nicolin@ordineavvocativicenza.it"
+},
+{
+"idA": 10,
+"avvocato": "Perseghin Corrado",
+"foro": "Verona",
+"email": "corradoperseghin@pec.it"
+},
+{
+"idA": 11,
+"avvocato": "Spina Michele",
+"foro": "Verona",
+"email": "michelespina@pec.it"
+},
+{
+"idA": 12,
+"avvocato": "Paraschiv Giorgio",
+"foro": "Verona",
+"email": "avvgiorgioparaschiv@ordineavvocativrpec.it"
+},
+{
+"idA": 13,
+"avvocato": "Greselin Matilde",
+"foro": "Vicenza",
+"email": "matilde.greselin@ordineavvocativicenza.it"
+},
+{
+"idA": 14,
+"avvocato": "Viviani Susanna",
+"foro": "Verona",
+"email": "avvsusannaviviani@ordineavvocativrpec.it"
+},
+{
+"idA": 15,
+"avvocato": "Pippa Cristiano",
+"foro": "Verona",
+"email": "avv.cristiano.pippa@pec.it"
+},
+{
+"idA": 16,
+"avvocato": "Calabria Cilento De Hauteville Anna Carmen",
+"foro": "Verona",
+"email": "avvannacarmencalabriacdh@ordineavvocativrpec.it"
+},
+{
+"idA": 17,
+"avvocato": "Tiano Mara",
+"foro": "Verona",
+"email": "avvmaratiano@puntopec.it"
+},
+{
+"idA": 18,
+"avvocato": "Bovolin Luca",
+"foro": "Verona",
+"email": "bovolin@pec.sicon.it"
+},
+{
+"idA": 19,
+"avvocato": "Dorizzi Michele",
+"foro": "Verona",
+"email": "avvmicheledorizzi@ordineavvocativrpec.it"
+},
+{
+"idA": 20,
+"avvocato": "Ferrari Mauro",
+"foro": "Verona",
+"email": "avvmauroferrari@puntopec.it"
+}
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "idA": 1,
+    "organo": "Procura della Repubblica",
+    "abbreviazione": "PROC."
+  },
+  {
+    "idA": 2,
+    "organo": "Procura Generale della Repubblica",
+    "abbreviazione": "PROC. GEN."
+  },
+  {
+    "idA": 3,
+    "organo": "Procura della Repubblica per i Minorenni",
+    "abbreviazione": "PROC. MIN."
+  },
+  {
+    "idA": 4,
+    "organo": "Tribunale Ordinario",
+    "abbreviazione": "T. O."
+  },
+  {
+    "idA": 5,
+    "organo": "Corte d'Appello",
+    "abbreviazione": "COR. APP."
+  },
+  {
+    "idA": 6,
+    "organo": "Magistrato di Sorveglianza",
+    "abbreviazione": "M. S."
+  },
+  {
+    "idA": 7,
+    "organo": "Gip presso il Tribunale Ordinario",
+    "abbreviazione": "GIP"
+  },
+  {
+    "idA": 8,
+    "organo": "Gup presso il Tribunale Ordinario",
+    "abbreviazione": "GUP"
+  },
+  {
+    "idA": 9,
+    "organo": "Gup presso il Tribunale per i Minori",
+    "abbreviazione": "GUP. MIN."
+  },
+  {
+    "idA": 10,
+    "organo": "Corte d'Assise",
+    "abbreviazione": "COR. ASS."
+  }
+]

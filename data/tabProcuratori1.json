@@ -1,0 +1,56 @@
+[
+  {
+    "idA": 1,
+    "titolo": "Sostituto Procuratore Generale",
+    "procuratore": "Dott. Alessandro Severi",
+    "active": true
+  },
+  {
+    "idA": 2,
+    "titolo": "Sostituto Procuratore Generale",
+    "procuratore": "Dott. Giuseppe Costanzo Salvo",
+    "active": true
+  },
+  {
+    "idA": 3,
+    "titolo": "Sostituto Procuratore Generale",
+    "procuratore": "Dott.ssa Paola Cameran",
+    "active": true
+  },
+  {
+    "idA": 4,
+    "titolo": "Sostituto Procuratore Generale",
+    "procuratore": "Dott.ssa Maristella Cerato",
+    "active": true
+  },
+  {
+    "idA": 5,
+    "titolo": "Sostituto Procuratore Generale",
+    "procuratore": "Dott. Paolo Sachar",
+    "active": true
+  },
+  {
+    "idA": 6,
+    "titolo": "Sostituto Procuratore",
+    "procuratore": "Dott. Giancarlo Buonocore",
+    "active": true
+  },
+  {
+    "idA": 7,
+    "titolo": "Sostituto Procuratore",
+    "procuratore": "Dott. Antonio Giovanni De Lorenzi",
+    "active": true
+  },
+  {
+    "idA": 8,
+    "titolo": "Sostituto Procuratore",
+    "procuratore": "Dott. Paolo Fietta",
+    "active": true
+  },
+  {
+    "idA": 9,
+    "titolo": "Sostituto Procuratore",
+    "procuratore": "Dott. Antonio Miggiani",
+    "active": true
+  }
+]

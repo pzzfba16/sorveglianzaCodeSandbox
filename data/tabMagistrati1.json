@@ -1,0 +1,50 @@
+[
+  {
+    "idA": 1,
+    "titolo": "Dott.ssa",
+    "magistrato": "Isabella Cesari",
+    "competenza": "",
+    "sostitutoDi": "",
+    "active": false
+  },
+  {
+    "idA": 2,
+    "titolo": "Dott.",
+    "magistrato": "Andrea Mirenda",
+    "competenza": "EFGHKLMN",
+    "sostitutoDi": "Isabella Cesari",
+    "active": true
+  },
+  {
+    "idA": 3,
+    "titolo": "Dott.",
+    "magistrato": "Vincenzo Semeraro",
+    "competenza": "OPQRSTUVWXYZ",
+    "sostitutoDi": "Andrea Mirenda",
+    "active": true
+  },
+  {
+    "idA": 5,
+    "titolo": "Dott.ssa",
+    "magistrato": "Linda Arata",
+    "competenza": "",
+    "sostitutoDi": "",
+    "active": true
+  },
+  {
+    "idA": 6,
+    "titolo": "Dott.ssa",
+    "magistrato": "Elena Garbo",
+    "competenza": "",
+    "sostitutoDi": "",
+    "active": true
+  },
+  {
+    "idA": 7,
+    "titolo": "Dott.ssa",
+    "magistrato": "Pierangela Bellingeri",
+    "competenza": "ABCDIJ",
+    "sostitutoDi": "Vincenzo Semeraro",
+    "active": true
+  }
+]

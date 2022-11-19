@@ -1,0 +1,18 @@
+[
+  {
+    "idA": 1,
+    "decisione": "Concede"
+  },
+  {
+    "idA": 2,
+    "decisione": "Inammissibile"
+  },
+  {
+    "idA": 3,
+    "decisione": "NLP / NDP"
+  },
+  {
+    "idA": 4,
+    "decisione": "Rigetta"
+  }
+]

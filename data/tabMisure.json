@@ -1,0 +1,162 @@
+[
+  {
+    "idA": 1,
+    "posizioneGiuridica": "Detenzione",
+    "detentiva": false
+  },
+  {
+    "idA": 2,
+    "posizioneGiuridica": "Arresti Domiciliari",
+    "detentiva": false
+  },
+  {
+    "idA": 3,
+    "posizioneGiuridica": "Detenzione Domiciliare",
+    "detentiva": false
+  },
+  {
+    "idA": 4,
+    "posizioneGiuridica": "Affidamento al Servizio Sociale",
+    "detentiva": false
+  },
+  {
+    "idA": 5,
+    "posizioneGiuridica": "In atto Libero",
+    "detentiva": false
+  },
+  {
+    "idA": 7,
+    "posizioneGiuridica": "Camere di sicurezza",
+    "detentiva": true
+  },
+  {
+    "idA": 8,
+    "posizioneGiuridica": "Libero in differimento pena",
+    "detentiva": false
+  },
+  {
+    "idA": 9,
+    "posizioneGiuridica": "Arresti Domiciliari ex art.656 comma 10 cpp",
+    "detentiva": false
+  },
+  {
+    "idA": 10,
+    "posizioneGiuridica": "Libero in differimento pena (Provvisorio)",
+    "detentiva": false
+  },
+  {
+    "idA": 11,
+    "posizioneGiuridica": "Detenzione Domiciliare in surroga",
+    "detentiva": false
+  },
+  {
+    "idA": 12,
+    "posizioneGiuridica": "Deceduto",
+    "detentiva": false
+  },
+  {
+    "idA": 13,
+    "posizioneGiuridica": "Espulso",
+    "detentiva": false
+  },
+  {
+    "idA": 14,
+    "posizioneGiuridica": "Evaso",
+    "detentiva": false
+  },
+  {
+    "idA": 15,
+    "posizioneGiuridica": "posizioneGiuridica di Sicurezza Liberta' Vigilata",
+    "detentiva": false
+  },
+  {
+    "idA": 16,
+    "posizioneGiuridica": "Estradato",
+    "detentiva": false
+  },
+  {
+    "idA": 17,
+    "posizioneGiuridica": "Detenzione PAC",
+    "detentiva": true
+  },
+  {
+    "idA": 18,
+    "posizioneGiuridica": "Affidamento Terapeutico ex art. 94 co. 2 DPR 309/90",
+    "detentiva": false
+  },
+  {
+    "idA": 19,
+    "posizioneGiuridica": "Detenzione Domiciliare Provvisoria",
+    "detentiva": false
+  },
+  {
+    "idA": 20,
+    "posizioneGiuridica": "Libero vigilato",
+    "detentiva": false
+  },
+  {
+    "idA": 21,
+    "posizioneGiuridica": "Libero sospeso",
+    "detentiva": false
+  },
+  {
+    "idA": 22,
+    "posizioneGiuridica": "Affidamento al Servizio Sociale Provvisorio",
+    "detentiva": false
+  },
+  {
+    "idA": 23,
+    "posizioneGiuridica": "Esecuzione della pena presso il domicilio (L. 199/10)",
+    "detentiva": false
+  },
+  {
+    "idA": 24,
+    "posizioneGiuridica": "Affidamento Terapeutico ex art. 94 co. 2 DPR 309/90 - Provvisorio",
+    "detentiva": false
+  },
+  {
+    "idA": 25,
+    "posizioneGiuridica": "Internato in R.E.M.S. PAC",
+    "detentiva": false
+  },
+  {
+    "idA": 26,
+    "posizioneGiuridica": "Internato in R.E.M.S.",
+    "detentiva": false
+  },
+  {
+    "idA": 27,
+    "posizioneGiuridica": "Differimento Pena Nelle Forme della Detenzione Domiciliare",
+    "detentiva": false
+  },
+  {
+    "idA": 28,
+    "posizioneGiuridica": "Semilibero",
+    "detentiva": true
+  },
+  {
+    "idA": 29,
+    "posizioneGiuridica": "Libero con obblighi",
+    "detentiva": false
+  },
+  {
+    "idA": 30,
+    "posizioneGiuridica": "Libero in Differimento Pena (Provvisorio) ex art. 684 comma 2 c.p.p.",
+    "detentiva": false
+  },
+  {
+    "idA": 31,
+    "posizioneGiuridica": "Revoca Detenzione Domiciliare (Art. ter O.P.)",
+    "detentiva": false
+  },
+  {
+    "idA": 32,
+    "posizioneGiuridica": "Arresti domiciliari PAC",
+    "detentiva": false
+  },
+  {
+    "idA": 33,
+    "posizioneGiuridica": "Affidamento al Servizio sociale per altro titolo",
+    "detentiva": false
+  }
+]
