@@ -7,7 +7,7 @@ const rateLimit = require('express-rate-limit'); //Add dynamic rate-limiting
 const helmet = require('helmet'); //Helmet helps you secure your Express apps by setting various HTTP headers
 const mongoSanitize = require('express-mongo-sanitize'); //Middleware which sanitizes user-supplied data to prevent MongoDB Operator Injection
 const xss = require('xss-clean'); //Filter input from users to prevent XSS attacks
-const hpp = require('hpp'); //Middleware to protect against HTTP Parameter Pollution attacks
+// const hpp = require('hpp'); //Middleware to protect against HTTP Parameter Pollution attacks
 const mongoose = require('mongoose'); //Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment
 
 // Declaration of owen modules
@@ -65,18 +65,18 @@ app.use(mongoSanitize());
 app.use(xss());
 
 // Prevent parameter pollution
-app.use(
-  hpp({
-    whitelist: [
-      'duration',
-      'ratingsQuantity',
-      'ratingsAverage',
-      'maxGroupSize',
-      'difficulty',
-      'price'
-    ]
-  })
-);
+// app.use(
+//   hpp({
+//     whitelist: [
+//       'duration',
+//       'ratingsQuantity',
+//       'ratingsAverage',
+//       'maxGroupSize',
+//       'difficulty',
+//       'price'
+//     ]
+//   })
+// );
 
 // 2) ROUTES ---------------------------------------------------------------
 app.use('/', indexRouter);
