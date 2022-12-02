@@ -185,6 +185,9 @@ const istanzaUSSchema = mongoose.Schema(
     noteIstanza: String,
     istruttoria: [
       {
+        istruttoriaId: {
+          type: Schema.Types.ObjectId
+        },
         sedeIstruttoria: {
           type: mongoose.Schema.ObjectId,
           ref: 'Sedi'
@@ -273,17 +276,45 @@ istanzaUSSchema.pre('save', function (next) {
   next();
 });
 
-istanzaUSSchema.statics.calcolaYMD = async function (istanzaId) {
-  const d = await this.findById(istanzaId);
-  if (d.dal > d.al) {
-    const diff = moment.preciseDiff(d.dal, d.al);
-    console.log(diff);
-    // await IstanzaUS.findByIdAndUpdate(istanzaId, {
-    //   anni: y
-    // });
+istanzaUSSchema.statics.calcolaYMD = async function (istruttoriaId) {
+  const d = await this.findById(istruttoriaId);
+
+  const dal = new Date(d.dal);
+  const al = new Date(d.al);
+
+  const dal1 = dal.getTime();
+  const al1 = al.getTime();
+
+  let calc;
+
+  //Check which timestamp is greater
+  if (dal1 > al1) {
+    calc = new Date(dal1 - al1);
+  } else {
+    calc = new Date(al1 - dal1);
   }
+
+  const days_passed = Number(Math.abs(calc.getDate()));
+  const months_passed = Number(Math.abs(calc.getMonth() + 1) - 1);
+  const years_passed = Number(Math.abs(calc.getFullYear()) - 1970);
+
+  await IstanzaUS.findByIdAndUpdate(istruttoriaId, {
+    anni: years_passed,
+    mesi: months_passed,
+    giorni: days_passed
+  });
 };
 
+istanzaUSSchema.post('save', function (next) {
+  this.constructor.calcolaYMD(this.istruttoriaId);
+  next();
+});
+
+istanzaUSSchema.pre(/^findOneAnd/, async function (next) {
+  this.r = await this.findOne();
+  // console.log(this.r);
+  next();
+});
 const IstanzaUS = mongoose.model('IstanzaUS', istanzaUSSchema);
 
 module.exports = IstanzaUS;

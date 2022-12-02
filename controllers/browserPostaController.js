@@ -1,86 +1,21 @@
 const BrowserPostaModel = require('./../models/browserPostaModel');
-const AppFeatures = require('./../helpers/appFeatures');
-const appErrorAsync = require('./../helpers/appErrorAsync');
-const AppError = require('./../helpers/appError');
+const factory = require('./handlerFactory');
 
-exports.getAllBrowser = appErrorAsync(async (req, res, next) => {
-  if (!req.query) {
-    req.query.sort = 'ente';
-  }
-  const features = new AppFeatures(BrowserPostaModel.find(), req.query).sort();
-  const results = await features.query;
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: {
-      results
-    }
-  });
-});
+exports.getAllBrowser = factory.getAll(BrowserPostaModel);
 
-exports.createBrowser = appErrorAsync(async (req, res, next) => {
-  const results = await BrowserPostaModel.create(req.body);
-  res.status(201).json({
-    status: 'success',
-    results: results.length,
+exports.createBrowser = factory.createOne(BrowserPostaModel);
 
-    data: {
-      results
-    }
-  });
-});
+exports.getBrowser = factory.getOne(BrowserPostaModel);
 
-exports.getBrowser = appErrorAsync(async (req, res, next) => {
-  const results = await BrowserPostaModel.findById(req.params.id);
-  if (!results) {
-    return next(new AppError('Ente non trovato con ID', 404));
-  }
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: {
-      results
-    }
-  });
-});
+exports.updateBrowser = factory.updateOne(BrowserPostaModel);
 
-exports.updateBrowser = appErrorAsync(async (req, res, next) => {
-  const results = await BrowserPostaModel.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true
-    }
-  );
-  if (!results) {
-    return next(new AppError('Ente non trovato con ID', 404));
-  }
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: {
-      results
-    }
-  });
-});
+exports.deleteBrowser = factory.deleteOne(BrowserPostaModel);
 
-exports.deleteBrowser = appErrorAsync(async (req, res, next) => {
-  const results = await BrowserPostaModel.findByIdAndDelete(req.params.id);
-  if (!results) {
-    return next(new AppError('Ente non trovato con ID', 404));
-  }
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: null
-  });
-});
-
-exports.createAll = appErrorAsync(async (req, res) => {
+exports.createAll = async (req, res) => {
   const results = await BrowserPostaModel.create(req.body);
   res.status(200).json({
     status: 'success',
     results: results.length,
     data: null
   });
-});
+};

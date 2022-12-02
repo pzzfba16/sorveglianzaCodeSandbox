@@ -1,82 +1,21 @@
 const Decisione = require('./../models/decicioneModel');
-const AppFeatures = require('./../helpers/appFeatures');
-const appErrorAsync = require('./../helpers/appErrorAsync');
-const AppError = require('./../helpers/appError');
+const factory = require('./handlerFactory');
 
-exports.getAllDecisioni = appErrorAsync(async (req, res, next) => {
-  if (!req.query) {
-    req.query.sort = 'decisione';
-  }
-  const features = new AppFeatures(Decisione.find(), req.query).sort();
-  const results = await features.query;
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: {
-      results
-    }
-  });
-});
+exports.getAllDecisioni = factory.getAll(Decisione);
 
-exports.createDecisione = appErrorAsync(async (req, res, next) => {
-  const results = await Decisione.create(req.body);
-  res.status(201).json({
-    status: 'success',
-    results: results.length,
+exports.createDecisione = factory.createOne(Decisione);
 
-    data: {
-      results
-    }
-  });
-});
+exports.getDecisione = factory.getOne(Decisione);
 
-exports.getDecisione = appErrorAsync(async (req, res, next) => {
-  const results = await Decisione.findById(req.params.id);
-  if (!results) {
-    return next(new AppError('Decisione non trovato con ID', 404));
-  }
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: {
-      results
-    }
-  });
-});
+exports.updateDecisione = factory.updateOne(Decisione);
 
-exports.updateDecisione = appErrorAsync(async (req, res, next) => {
-  const results = await Decisione.findByIdAndUpdate(req.params.id, req.body, {
-    new: true
-  });
-  if (!results) {
-    return next(new AppError('Decisione non trovato con ID', 404));
-  }
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: {
-      results
-    }
-  });
-});
+exports.deleteDecisione = factory.deleteOne(Decisione);
 
-exports.deleteDecisione = appErrorAsync(async (req, res, next) => {
-  const results = await Decisione.findByIdAndDelete(req.params.id);
-  if (!results) {
-    return next(new AppError('Decisione non trovato con ID', 404));
-  }
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: null
-  });
-});
-
-exports.createAll = appErrorAsync(async (req, res) => {
+exports.createAll = async (req, res) => {
   const results = await Decisione.create(req.body);
   res.status(200).json({
     status: 'success',
     results: results.length,
     data: null
   });
-});
+};

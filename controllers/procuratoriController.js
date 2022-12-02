@@ -1,76 +1,15 @@
 const Procuratori = require('./../models/procuratoriModel');
-const AppFeatures = require('./../helpers/appFeatures');
-const appErrorAsync = require('./../helpers/appErrorAsync');
-const AppError = require('./../helpers/appError');
+const factory = require('./handlerFactory');
 
-exports.getAllProcuratori = appErrorAsync(async (req, res, next) => {
-  if (!req.query) {
-    req.query.sort = 'procuratore';
-  }
-  const features = new AppFeatures(Procuratori.find(), req.query).sort();
-  const results = await features.query;
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: {
-      results
-    }
-  });
-});
+exports.getAllProcuratori = factory.getAll(Procuratori);
 
-exports.createProcuratore = appErrorAsync(async (req, res, next) => {
-  const results = await Procuratori.create(req.body);
-  res.status(201).json({
-    status: 'success',
-    results: results.length,
+exports.createProcuratore = factory.createOne(Procuratori);
 
-    data: {
-      results
-    }
-  });
-});
+exports.getProcuratore = factory.getOne(Procuratori);
 
-exports.getProcuratore = appErrorAsync(async (req, res, next) => {
-  const results = await Procuratori.findById(req.params.id);
-  if (!results) {
-    return next(new AppError('Istanza non trovato con ID', 404));
-  }
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: {
-      results
-    }
-  });
-});
+exports.updateProcuratore = factory.updateOne(Procuratori);
 
-exports.updateProcuratore = appErrorAsync(async (req, res, next) => {
-  const results = await Procuratori.findByIdAndUpdate(req.params.id, req.body, {
-    new: true
-  });
-  if (!results) {
-    return next(new AppError('Istanza non trovato con ID', 404));
-  }
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: {
-      results
-    }
-  });
-});
-
-exports.deleteProcuratore = appErrorAsync(async (req, res, next) => {
-  const results = await Procuratori.findByIdAndDelete(req.params.id);
-  if (!results) {
-    return next(new AppError('Istanza non trovato con ID', 404));
-  }
-  res.status(200).json({
-    status: 'success',
-    results: results.length,
-    data: null
-  });
-});
+exports.deleteProcuratore = factory.deleteOne(Procuratori);
 
 exports.createAll = async (req, res) => {
   try {
