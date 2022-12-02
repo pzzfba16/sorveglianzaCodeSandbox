@@ -17,7 +17,7 @@ exports.createAll = async (req, res) => {
     res.status(200).json({
       status: 'success',
       results: results.length,
-      data: null
+      data: results
     });
   } catch (err) {
     res.status(404).json({
