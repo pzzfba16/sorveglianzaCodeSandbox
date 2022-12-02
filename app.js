@@ -11,7 +11,7 @@ const hpp = require('hpp'); //Middleware to protect against HTTP Parameter Pollu
 const mongoose = require('mongoose'); //Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment
 
 // Declaration of owen modules
-const AppError = require('./../helpers/appError'); //Module for throw errors
+const AppError = require('./helpers/appError'); //Module for throw errors
 const globalErrorHandler = require('./controllers/errorController'); //Modules for global error
 
 // Routers
