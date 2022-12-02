@@ -48,7 +48,7 @@ const richiestaSchema = mongoose.Schema(
 richiestaSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'istanza',
-    select: '-__v'
+    select: '-__v -idA -descrizione'
   });
 
   next();

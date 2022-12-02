@@ -22,6 +22,6 @@ const procuratoreSchema = new mongoose.Schema({
   }
 });
 
-const esperti = mongoose.model('Procuratori', procuratoreSchema);
+const Esperti = mongoose.model('Procuratori', procuratoreSchema);
 
-module.exports = esperti;
+module.exports = Esperti;
