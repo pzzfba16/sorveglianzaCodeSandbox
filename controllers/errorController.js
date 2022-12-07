@@ -50,6 +50,12 @@ const sendErrorProd = (err, res) => {
   }
 };
 
+const handleJWTError = () =>
+  new AppError('Invalid token. Eseguire nuovamente il logIn', 401);
+
+const handleJWTExpiredError = () =>
+  new AppError('Il token è scaduto! Eseguire nuovamente il logIn', 401);
+
 module.exports = (err, req, res, next) => {
   // console.log(err.stack);
 
@@ -65,6 +71,8 @@ module.exports = (err, req, res, next) => {
     if (error.code === 11000) error = handleDuplicateFieldsDB(error);
     if (error.name === 'ValidationError')
       error = handleValidationErrorDB(error);
+    if (error.name === 'JsonWebTokenError') error = handleJWTError();
+    if (error.name === 'TokenExpiredError') error = handleJWTExpiredError();
 
     sendErrorProd(error, res);
   }

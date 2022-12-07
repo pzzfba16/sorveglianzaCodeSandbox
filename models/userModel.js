@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const crypto = require('crypto');
+//const crypto = require('crypto');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
 const userSchema = mongoose.Schema({
-  user: {
+  name: {
     type: String,
-    required: [true, "Inserire cognome e nome dell'utente"],
+    required: [true, "Inserire nome e cognome dell'utente"],
     trim: true
   },
   email: {
@@ -38,13 +38,13 @@ const userSchema = mongoose.Schema({
   password: {
     type: String,
     required: [true, 'Inserire la password'],
-    minlength: 8,
-    select: false
+    minlength: 8
+    //select: false
   },
   passwordConfirm: {
     type: String,
     required: [true, 'Confermare la password'],
-    select: false,
+    //select: false,
     validate: {
       // This only works on CREATE and SAVE!!!
       validator: function (el) {
@@ -67,8 +67,8 @@ const userSchema = mongoose.Schema({
   },
   active: {
     type: Boolean,
-    default: true,
-    select: false
+    default: true
+    //select: false
   }
 });
 
@@ -76,6 +76,16 @@ const userSchema = mongoose.Schema({
 userSchema.pre(/^find/, function (next) {
   // this points to the current query
   this.find({ active: { $ne: false } });
+  next();
+});
+
+userSchema.pre('save', async function (next) {
+  // Only run this function if password was actually modified
+  if (!this.isModified('password')) return next();
+  // Hash the password with cost of 12
+  this.password = await bcrypt.hash(this.password, 12);
+  // Delete passwordConfirm field
+  this.passwordConfirm = undefined;
   next();
 });
 

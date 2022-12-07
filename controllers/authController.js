@@ -31,12 +31,12 @@ const createSendToken = (user, statusCode, res) => {
     status: 'success',
     token,
     data: {
-      user
+      data: user
     }
   });
 };
 
-exports.signup = appErrorAsync(async (req, res, next) => {
+exports.signUp = appErrorAsync(async (req, res, next) => {
   const newUser = await User.create({
     name: req.body.name,
     email: req.body.email,
