@@ -28,8 +28,7 @@ const userSchema = mongoose.Schema({
   interno: Number,
   browserPosta: {
     type: mongoose.Schema.ObjectId,
-    ref: 'BroserPosta',
-    required: [true, 'Inserire il browser di posta predefinito']
+    ref: 'BrowserPosta'
   },
   role: {
     type: String,
@@ -80,6 +79,6 @@ userSchema.pre(/^find/, function (next) {
   next();
 });
 
-const User = mongoose.Model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

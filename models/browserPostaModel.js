@@ -12,6 +12,6 @@ const browserSchema = new mongoose.Schema({
   }
 });
 
-const BroserPosta = mongoose.model('BrowserPosta', browserSchema);
+const BrowserPosta = mongoose.model('BrowserPosta', browserSchema);
 
-module.exports = BroserPosta;
+module.exports = BrowserPosta;

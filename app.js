@@ -16,7 +16,7 @@ const globalErrorHandler = require('./controllers/errorController'); //Modules f
 
 // Routers
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/userRouter');
 const ufficiRouter = require('./routes/ufficiRouter');
 const posgiuRouter = require('./routes/posGiuRouter');
 const avvocatoRouter = require('./routes/avvocatiRouter');
