@@ -15,6 +15,7 @@ const createSendToken = (user, statusCode, res) => {
   // Token generation
   const token = signToken(user._id);
   // Cookie options
+  console.log(process.env.JWT_COOKIE_EXPIRES_IN);
   const cookieOptions = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
@@ -36,6 +37,7 @@ const createSendToken = (user, statusCode, res) => {
   });
 };
 
+// Register a new user
 exports.signUp = appErrorAsync(async (req, res, next) => {
   const newUser = await User.create({
     name: req.body.name,
@@ -45,4 +47,21 @@ exports.signUp = appErrorAsync(async (req, res, next) => {
   });
   // Create and send token
   createSendToken(newUser, 201, res);
+});
+
+// Log In of the user
+exports.logIn = appErrorAsync(async (req, res, next) => {
+  console.log('login');
+  const { email, password } = req.body;
+  // 1) Check if email and password exist
+  if (!email || !password) {
+    return next(new AppError('Please provide email and password!', 400));
+  }
+  // 2) Check if user exists && password is correct
+  const user = await User.findOne({ email }).select('+password');
+  if (!user || !(await user.correctPassword(password, user.password))) {
+    return next(new AppError('Incorrect email or password', 401));
+  }
+  // 3) If everything ok, send token to client
+  createSendToken(user, 200, req, res);
 });

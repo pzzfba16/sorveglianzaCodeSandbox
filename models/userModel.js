@@ -38,8 +38,8 @@ const userSchema = mongoose.Schema({
   password: {
     type: String,
     required: [true, 'Inserire la password'],
-    minlength: 8
-    //select: false
+    minlength: 8,
+    select: false
   },
   passwordConfirm: {
     type: String,
@@ -67,11 +67,12 @@ const userSchema = mongoose.Schema({
   },
   active: {
     type: Boolean,
-    default: true
-    //select: false
+    default: true,
+    select: false
   }
 });
 
+// PRE and POST Hook -----------------------------------------------------------------------------
 // Select only active users
 userSchema.pre(/^find/, function (next) {
   // this points to the current query
@@ -88,6 +89,15 @@ userSchema.pre('save', async function (next) {
   this.passwordConfirm = undefined;
   next();
 });
+
+// ---------------------------------------------------------------------------------
+userSchema.methods.correctPassword = async function (
+  candidatePassword,
+  userPassword
+) {
+  console.log('correctPassword');
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
 
 const User = mongoose.model('User', userSchema);
 
