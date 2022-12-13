@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-//const crypto = require('crypto');
+const crypto = require('crypto');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
@@ -91,11 +91,26 @@ userSchema.pre('save', async function (next) {
 });
 
 // ---------------------------------------------------------------------------------
+// Compare the two password
 userSchema.methods.correctPassword = async function (
   candidatePassword,
   userPassword
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
+};
+
+//Create the password for the token reset
+userSchema.methods.createPasswordResetToke = async function () {
+  // Generate a reset token
+  const resetToken = crypto.randomBytes(32).toString('hex');
+  // Save the reset token and expire in token field
+  this.passwordResetToken = crypto
+    .createHash('sha256')
+    .update(resetToken)
+    .digest('hex');
+  this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+  // Return the generated token
+  return resetToken;
 };
 
 const User = mongoose.model('User', userSchema);

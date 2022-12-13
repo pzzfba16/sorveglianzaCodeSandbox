@@ -10,7 +10,6 @@
   "dependencies": {
     "bcryptjs": "2.4.3",
     "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-mongo-sanitize": "~2.2.0",
     "express-rate-limit": "~6.7.0",
@@ -20,6 +19,7 @@
     "moment": "~2.29.4",
     "mongoose": "~6.6.2",
     "morgan": "~1.10.0",
+    "nodemailer": "6.8.0",
     "validator": "~13.7.0",
     "xss-clean": "~0.1.1"
   },
