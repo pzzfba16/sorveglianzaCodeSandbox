@@ -15,7 +15,7 @@ const AppError = require('./helpers/appError'); //Module for throw errors
 const globalErrorHandler = require('./controllers/errorController'); //Modules for global error
 
 // Routers
-const indexRouter = require('./routes/index');
+const viewRouter = require('./routes/viewRouter');
 const usersRouter = require('./routes/userRouter');
 const ufficiRouter = require('./routes/ufficiRouter');
 const posgiuRouter = require('./routes/posGiuRouter');
@@ -79,21 +79,21 @@ app.use(xss());
 // );
 
 // 2) ROUTES ---------------------------------------------------------------
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/uffici', ufficiRouter);
-app.use('/posgiu', posgiuRouter);
-app.use('/avvocato', avvocatoRouter);
-app.use('/enti', entiRouter);
-app.use('/browserposta', browserPostaRouter);
-app.use('/decisioni', decisioneRouter);
-app.use('/esperti', espertiRouter);
-app.use('/istanze', istanzeRoter);
-app.use('/magistrati', magistratiRouter);
-app.use('/procuratori', procuratoriRouter);
-app.use('/organi', organiRouter);
-app.use('/sedi', sediRouter);
-app.use('/richieste', richiesteRouter);
+app.use('/', viewRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/uffici', ufficiRouter);
+app.use('/api/posgiu', posgiuRouter);
+app.use('/api/avvocato', avvocatoRouter);
+app.use('/api/enti', entiRouter);
+app.use('/api/browserposta', browserPostaRouter);
+app.use('/api/decisioni', decisioneRouter);
+app.use('/api/esperti', espertiRouter);
+app.use('/api/istanze', istanzeRoter);
+app.use('/api/magistrati', magistratiRouter);
+app.use('/api/procuratori', procuratoriRouter);
+app.use('/api/organi', organiRouter);
+app.use('/api/sedi', sediRouter);
+app.use('/api/richieste', richiesteRouter);
 
 // 3 ERROR HANDLER --------------------------------------------------
 // Routes not found
