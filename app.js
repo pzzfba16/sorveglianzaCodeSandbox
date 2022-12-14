@@ -15,7 +15,7 @@ const AppError = require('./helpers/appError'); //Module for throw errors
 const globalErrorHandler = require('./controllers/errorController'); //Modules for global error
 
 // Routers
-const indexRouter = require('./routes/index');
+const viewsRouter = require('./routes/viewsRouter');
 const usersRouter = require('./routes/userRouter');
 const ufficiRouter = require('./routes/ufficiRouter');
 const posgiuRouter = require('./routes/posGiuRouter');
@@ -79,7 +79,7 @@ app.use(xss());
 // );
 
 // 2) ROUTES ---------------------------------------------------------------
-app.use('/', indexRouter);
+app.use('/', viewsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/uffici', ufficiRouter);
 app.use('/api/posgiu', posgiuRouter);
