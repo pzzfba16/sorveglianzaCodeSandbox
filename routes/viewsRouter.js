@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const viewsController = require('./../controllers/viewsController');
+
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Ufficio di Sorveglianza di Verona' });
-});
+router.get('/', viewsController.home);
 
 module.exports = router;
