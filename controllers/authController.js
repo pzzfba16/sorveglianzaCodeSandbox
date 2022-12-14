@@ -54,7 +54,7 @@ exports.forgotPassword = appErrorAsync(async (req, res, next) => {
 });
 
 // Reset password ---------------------------------------------------------
-exports.forgotPassword = appErrorAsync(async (req, res, next) => {});
+exports.resetPassword = appErrorAsync(async (req, res, next) => {});
 
 // FUNCTIONS -----------------------------------------------------------------
 // Token Generation
