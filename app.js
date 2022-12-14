@@ -80,20 +80,20 @@ app.use(xss());
 
 // 2) ROUTES ---------------------------------------------------------------
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/uffici', ufficiRouter);
-app.use('/posgiu', posgiuRouter);
-app.use('/avvocato', avvocatoRouter);
-app.use('/enti', entiRouter);
-app.use('/browserposta', browserPostaRouter);
-app.use('/decisioni', decisioneRouter);
-app.use('/esperti', espertiRouter);
-app.use('/istanze', istanzeRoter);
-app.use('/magistrati', magistratiRouter);
-app.use('/procuratori', procuratoriRouter);
-app.use('/organi', organiRouter);
-app.use('/sedi', sediRouter);
-app.use('/richieste', richiesteRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/uffici', ufficiRouter);
+app.use('/api/posgiu', posgiuRouter);
+app.use('/api/avvocato', avvocatoRouter);
+app.use('/api/enti', entiRouter);
+app.use('/api/browserposta', browserPostaRouter);
+app.use('/api/decisioni', decisioneRouter);
+app.use('/api/esperti', espertiRouter);
+app.use('/api/istanze', istanzeRoter);
+app.use('/api/magistrati', magistratiRouter);
+app.use('/api/procuratori', procuratoriRouter);
+app.use('/api/organi', organiRouter);
+app.use('/api/sedi', sediRouter);
+app.use('/api/richieste', richiesteRouter);
 
 // 3 ERROR HANDLER --------------------------------------------------
 // Routes not found
@@ -120,6 +120,7 @@ var listener = app.listen(port, function () {
 process.on('unhandledRejection', (err) => {
   console.log('UNHANDLED REJECTION! 💥 Shutting down...');
   console.log(err.name, err.message);
+
   app.close(() => {
     process.exit(1);
   });
