@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const moment = require('moment');
+//const moment = require('moment');
 
 const istanzaUSSchema = mongoose.Schema(
   {
@@ -32,7 +32,13 @@ const istanzaUSSchema = mongoose.Schema(
       ],
       trim: true
     },
-    slug: String,
+    slug: {
+      type: String,
+      unique: {
+        type: true,
+        message: 'Il SIUS è già presente a sistema!'
+      }
+    },
     deposito: Date,
     udienzaData: Date,
     udienzaOra: Date,
@@ -52,6 +58,7 @@ const istanzaUSSchema = mongoose.Schema(
     },
     valutatoDa: String,
     valutatoFino: Date,
+    decorrenza: Date,
     posizioneGiuridica: {
       type: mongoose.Schema.ObjectId,
       ref: 'PosGiu'
@@ -180,89 +187,89 @@ const istanzaUSSchema = mongoose.Schema(
     user: {
       type: mongoose.Schema.ObjectId,
       ref: 'User',
-      required: [true, "L'utente che ha inserito il fascicolo è obbligatorio."]
+      required: [true, "L'utente è obbligatorio."]
     },
-    noteIstanza: String,
-    istruttoria: [
-      {
-        istruttoriaId: {
-          type: Schema.Types.ObjectId
-        },
-        sedeIstruttoria: {
-          type: mongoose.Schema.ObjectId,
-          ref: 'Sedi'
-        },
-        testo: {
-          type: mongoose.Schema.ObjectId,
-          ref: 'Testi'
-        },
-        dal: {
-          type: Date,
-          validate: [
-            validator.isDate('DD/MM/YYYY'),
-            'Inserire una data corretta'
-          ]
-        },
-        al: {
-          type: Date,
-          validate: [
-            validator.isDate('DD/MM/YYYY'),
-            'Inserire una data corretta'
-          ]
-        },
-        presofferto: {
-          type: Boolean,
-          default: false
-        },
-        ripetuto: {
-          type: Boolean,
-          default: false
-        },
-        compresa: {
-          type: Boolean,
-          default: false
-        },
-        inammissibile: {
-          type: Boolean,
-          default: false
-        },
-        noDati: {
-          type: Boolean,
-          default: false
-        },
-        immediata: {
-          type: Boolean,
-          default: false
-        },
-        subdelega: {
-          type: Boolean,
-          default: false
-        },
-        anni: {
-          type: Number,
-          default: 0
-        },
-        mesi: {
-          type: Number,
-          default: 0
-        },
-        giorni: {
-          type: Number,
-          default: 0
-        },
-        noteIstruttoria: String,
-        dataEmail: [
-          {
-            type: Date
-          }
-        ],
-        dataSollecito: [
-          {
-            type: Date
-          }
-        ]
-      }
-    ]
+    noteIstanza: String
+    // istruttoria: [
+    //   {
+    //     istruttoriaId: {
+    //       type: mongoose.Types.ObjectId
+    //     },
+    //     sedeIstruttoria: {
+    //       type: mongoose.Schema.ObjectId,
+    //       ref: 'Sedi'
+    //     },
+    //     testo: {
+    //       type: mongoose.Schema.ObjectId,
+    //       ref: 'Testi'
+    //     },
+    //     dal: {
+    //       type: Date,
+    //       validate: [
+    //         validator.isDate('DD/MM/YYYY'),
+    //         'Inserire una data corretta'
+    //       ]
+    //     },
+    //     al: {
+    //       type: Date,
+    //       validate: [
+    //         validator.isDate('DD/MM/YYYY'),
+    //         'Inserire una data corretta'
+    //       ]
+    //     },
+    //     presofferto: {
+    //       type: Boolean,
+    //       default: false
+    //     },
+    //     ripetuto: {
+    //       type: Boolean,
+    //       default: false
+    //     },
+    //     compresa: {
+    //       type: Boolean,
+    //       default: false
+    //     },
+    //     inammissibile: {
+    //       type: Boolean,
+    //       default: false
+    //     },
+    //     noDati: {
+    //       type: Boolean,
+    //       default: false
+    //     },
+    //     immediata: {
+    //       type: Boolean,
+    //       default: false
+    //     },
+    //     subdelega: {
+    //       type: Boolean,
+    //       default: false
+    //     },
+    //     anni: {
+    //       type: Number,
+    //       default: 0
+    //     },
+    //     mesi: {
+    //       type: Number,
+    //       default: 0
+    //     },
+    //     giorni: {
+    //       type: Number,
+    //       default: 0
+    //     },
+    //     noteIstruttoria: String,
+    //     dataEmail: [
+    //       {
+    //         type: Date
+    //       }
+    //     ],
+    //     dataSollecito: [
+    //       {
+    //         type: Date
+    //       }
+    //     ]
+    //   }
+    // ]
   },
   { timestamps: true },
   {
@@ -271,10 +278,36 @@ const istanzaUSSchema = mongoose.Schema(
   }
 );
 
+// INDICI --------------------------------------------------
+istanzaUSSchema.index({ slug: 1 });
+
+// HOOK PRE and POST -------------------------------------------------
+// PRE
 istanzaUSSchema.pre('save', function (next) {
   this.slug = this.aSius + '/' + this.nSius;
   next();
 });
+
+istanzaUSSchema.pre('save', function (next) {
+  let data = new Date(this.udienzaData);
+  console.log('Giorno ', data.getDay());
+  console.log('Mese ', data.getMonth());
+  console.log('Anno ', data.getFullYear());
+  //IstanzaUS.dateFormat(this);
+  next();
+});
+
+// istanzaUSSchema.pre('/^find/', function (next) {
+//   IstanzaUS.dateFormat(this);
+//   next();
+// });
+
+// STATIC methods ---------------------------------------------------
+istanzaUSSchema.statics.dateFormat = function (data) {
+  //this.udienzaData = data.udienzaData.toLocaleDateString('en-US');
+  this.valutatoFino = data.valutatoFino.toLocaleDateString('en-US');
+  this.decorrenza = data.decorrenza.toLocaleDateString('en-US');
+};
 
 istanzaUSSchema.statics.calcolaYMD = async function (istruttoriaId) {
   const d = await this.findById(istruttoriaId);
@@ -305,10 +338,10 @@ istanzaUSSchema.statics.calcolaYMD = async function (istruttoriaId) {
   });
 };
 
-istanzaUSSchema.post('save', function (next) {
-  this.constructor.calcolaYMD(this.istruttoriaId);
-  next();
-});
+// istanzaUSSchema.post('save', function (next) {
+//   this.constructor.calcolaYMD(this.istruttoriaId);
+//   next();
+// });
 
 istanzaUSSchema.pre(/^findOneAnd/, async function (next) {
   this.r = await this.findOne();

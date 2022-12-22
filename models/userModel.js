@@ -30,6 +30,7 @@ const userSchema = mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'BrowserPosta'
   },
+  directoryScansioni: String,
   role: {
     type: String,
     enum: ['user', 'admin'],

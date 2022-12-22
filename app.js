@@ -30,6 +30,7 @@ const procuratoriRouter = require('./routes/procuratoriRouter');
 const organiRouter = require('./routes/organiRouter');
 const sediRouter = require('./routes/sediRouter');
 const richiesteRouter = require('./routes/richiesteRouter');
+const istanzeUSRouter = require('./routes/istanzeUSRouter');
 
 var app = express();
 
@@ -98,6 +99,7 @@ app.use('/api/procuratori', procuratoriRouter);
 app.use('/api/organi', organiRouter);
 app.use('/api/sedi', sediRouter);
 app.use('/api/richieste', richiesteRouter);
+app.use('/api/instanzaUffSorv', istanzeUSRouter);
 
 // 3 ERROR HANDLER --------------------------------------------------
 // Routes not found
