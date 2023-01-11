@@ -281,6 +281,18 @@ const istanzaUSSchema = mongoose.Schema(
 // INDICI --------------------------------------------------
 istanzaUSSchema.index({ slug: 1 });
 
+// Populate the data
+istanzaUSSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'istanza',
+    select: '-idA -__v'
+  }).populate({
+    path: 'magistrato',
+    select: '-__v -idA -competenza -sostitutoDi'
+  });
+  next();
+});
+
 // HOOK PRE and POST -------------------------------------------------
 // PRE
 istanzaUSSchema.pre('save', function (next) {
@@ -288,14 +300,14 @@ istanzaUSSchema.pre('save', function (next) {
   next();
 });
 
-istanzaUSSchema.pre('save', function (next) {
-  let data = new Date(this.udienzaData);
-  console.log('Giorno ', data.getDay());
-  console.log('Mese ', data.getMonth());
-  console.log('Anno ', data.getFullYear());
-  //IstanzaUS.dateFormat(this);
-  next();
-});
+// istanzaUSSchema.pre('save', function (next) {
+//   let data = new Date(this.udienzaData);
+//   console.log('Giorno ', data.getDay());
+//   console.log('Mese ', data.getMonth());
+//   console.log('Anno ', data.getFullYear());
+//   //IstanzaUS.dateFormat(this);
+//   next();
+// });
 
 // istanzaUSSchema.pre('/^find/', function (next) {
 //   IstanzaUS.dateFormat(this);
@@ -303,51 +315,46 @@ istanzaUSSchema.pre('save', function (next) {
 // });
 
 // STATIC methods ---------------------------------------------------
-istanzaUSSchema.statics.dateFormat = function (data) {
-  //this.udienzaData = data.udienzaData.toLocaleDateString('en-US');
-  this.valutatoFino = data.valutatoFino.toLocaleDateString('en-US');
-  this.decorrenza = data.decorrenza.toLocaleDateString('en-US');
-};
+// istanzaUSSchema.statics.dateFormat = function (data) {
+//   //this.udienzaData = data.udienzaData.toLocaleDateString('en-US');
+//   this.valutatoFino = data.valutatoFino.toLocaleDateString('en-US');
+//   this.decorrenza = data.decorrenza.toLocaleDateString('en-US');
+// };
 
-istanzaUSSchema.statics.calcolaYMD = async function (istruttoriaId) {
-  const d = await this.findById(istruttoriaId);
+// istanzaUSSchema.statics.calcolaYMD = async function (istruttoriaId) {
+//   const d = await this.findById(istruttoriaId);
 
-  const dal = new Date(d.dal);
-  const al = new Date(d.al);
+//   const dal = new Date(d.dal);
+//   const al = new Date(d.al);
 
-  const dal1 = dal.getTime();
-  const al1 = al.getTime();
+//   const dal1 = dal.getTime();
+//   const al1 = al.getTime();
 
-  let calc;
+//   let calc;
 
-  //Check which timestamp is greater
-  if (dal1 > al1) {
-    calc = new Date(dal1 - al1);
-  } else {
-    calc = new Date(al1 - dal1);
-  }
+//   //Check which timestamp is greater
+//   if (dal1 > al1) {
+//     calc = new Date(dal1 - al1);
+//   } else {
+//     calc = new Date(al1 - dal1);
+//   }
 
-  const days_passed = Number(Math.abs(calc.getDate()));
-  const months_passed = Number(Math.abs(calc.getMonth() + 1) - 1);
-  const years_passed = Number(Math.abs(calc.getFullYear()) - 1970);
+//   const days_passed = Number(Math.abs(calc.getDate()));
+//   const months_passed = Number(Math.abs(calc.getMonth() + 1) - 1);
+//   const years_passed = Number(Math.abs(calc.getFullYear()) - 1970);
 
-  await IstanzaUS.findByIdAndUpdate(istruttoriaId, {
-    anni: years_passed,
-    mesi: months_passed,
-    giorni: days_passed
-  });
-};
+//   await IstanzaUS.findByIdAndUpdate(istruttoriaId, {
+//     anni: years_passed,
+//     mesi: months_passed,
+//     giorni: days_passed
+//   });
+// };
 
 // istanzaUSSchema.post('save', function (next) {
 //   this.constructor.calcolaYMD(this.istruttoriaId);
 //   next();
 // });
 
-istanzaUSSchema.pre(/^findOneAnd/, async function (next) {
-  this.r = await this.findOne();
-  // console.log(this.r);
-  next();
-});
 const IstanzaUS = mongoose.model('IstanzaUS', istanzaUSSchema);
 
 module.exports = IstanzaUS;

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const sediSchema = mongoose.Schema({
+const sedeSchema = mongoose.Schema({
   idA: {
     type: Number,
     unique: true
@@ -17,8 +17,8 @@ const sediSchema = mongoose.Schema({
     tim: true
   },
   cap: {
-    type: Number,
-    validate: [validator.isNumeric, 'Inserire solo numeri']
+    type: Number
+    //validate: [validator.isNumeric, 'Inserire solo numeri']
   },
   telefono: {
     type: String,
@@ -44,24 +44,24 @@ const sediSchema = mongoose.Schema({
   note: {
     type: String,
     trim: true
-  },
-  emailCollegate: {
-    idIstanza: {
-      type: mongoose.Types.ObjectId,
-      ref: 'Istanze'
-    },
-    protocollo: {
-      type: String,
-      enum: ['A', 'CC', 'CCN']
-    },
-    emailCollegata: {
-      type: String,
-      trim: true,
-      validate: [validator.isEmail, 'Inserire un indirizzo email valido']
-    }
   }
+  // emailCollegate: {
+  //   idIstanza: {
+  //     type: mongoose.Types.ObjectId,
+  //     ref: 'Istanze'
+  //   },
+  //   protocollo: {
+  //     type: String,
+  //     enum: ['A', 'CC', 'CCN']
+  //   },
+  //   emailCollegata: {
+  //     type: String,
+  //     trim: true,
+  //     validate: [validator.isEmail, 'Inserire un indirizzo email valido']
+  //   }
+  // }
 });
 
-const Sedi = mongoose.model('Sedi', sediSchema);
+const Sedi = mongoose.model('Sedi', sedeSchema);
 
 module.exports = Sedi;
